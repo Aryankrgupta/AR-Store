@@ -3,11 +3,18 @@ import { client, urlFor } from '../../lib/client';
 import { AiOutlinePlus, AiOutlineMinus, AiFillStar, AiOutlineStar } from 'react-icons/ai';
 import { Products } from '../../components';
 import { useStateContext } from '../../context/StateContext';
+import { useUser } from '@auth0/nextjs-auth0/client'
+import { useRouter } from 'next/router'
 
 const ProductDetails = ({products, product}) => {
     const { image, name, details, price } = product;
     const [index, setIndex] = React.useState(0);
     const { incQty, decQty, qty, onAdd, setShowCart } = useStateContext();
+
+    const { user, error, isLoading } = useUser();
+    const { push } = useRouter();
+//   if (isLoading) return <h1>Loading...</h1>;
+  const handlelogin = () => push('/api/auth/login');
 
     const handleBuyNow = () => {
         onAdd(product, qty);
@@ -63,7 +70,7 @@ const ProductDetails = ({products, product}) => {
                 <div className='buttons'>
                     <button className='add-to-cart' type='button' onClick={() => onAdd(product, qty)}>Add to Cart</button>
 
-                    <button className='buy-now' type='button' onClick={handleBuyNow}>Buy Now</button>
+                    <button className='buy-now' type='button' onClick={user ? (handleBuyNow) : (handlelogin) }>Buy Now</button>
                 </div>
             </div>
         </div>

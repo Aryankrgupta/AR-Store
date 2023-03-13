@@ -14,7 +14,7 @@ const Cart = () => {
   const { setShowCart, totalQuantities, cartItems, totalPrice, toggleCartItemQuanitity, onRemove } = useStateContext();
   const { user, error, isLoading } = useUser();
   const { push } = useRouter();
-
+  if (isLoading) return <h1>Loading...</h1>;
   const handlelogin = () => push('/api/auth/login');
   const handleCheckout = async () => {
     const stripe = await getStripe();
@@ -102,7 +102,7 @@ const Cart = () => {
             </div>
             
             <div className='btn-container'>
-              <button type='button' className='btn' onClick={user ? (handleCheckout) : (handlelogin) }>Place your order</button>
+              <button type='button' className='btn' onClick={handleCheckout}>Place your order</button>
             </div>
           </div>
         )}
