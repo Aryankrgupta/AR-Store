@@ -33,7 +33,8 @@ export default async function handler(req, res) {
                         minimum: 1,
                     },
                     quantity: item.quantity
-                }
+                },
+                
             }),
 
           success_url: `${req.headers.origin}/success`,

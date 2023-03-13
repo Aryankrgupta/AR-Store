@@ -744,6 +744,7 @@ margin-top: 160px;
 .track {
   animation: marquee 5s linear infinite;
   width: 550%;
+  overflow-x: hidden;
 }
 .success-wrapper, .cancel-wrapper{
  

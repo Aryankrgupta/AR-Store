@@ -6,10 +6,16 @@ import {BiShoppingBag} from 'react-icons/bi'
 import { toast } from 'react-hot-toast'
 import Link from 'next/link'
 import getStripe from '../lib/getStripe'
+import { useUser } from '@auth0/nextjs-auth0/client'
+import { useRouter } from 'next/router'
 
 const Cart = () => {
   const cartRef = React.useRef();
   const { setShowCart, totalQuantities, cartItems, totalPrice, toggleCartItemQuanitity, onRemove } = useStateContext();
+  const { user, error, isLoading } = useUser();
+  const { push } = useRouter();
+
+  const handlelogin = () => push('/api/auth/login');
   const handleCheckout = async () => {
     const stripe = await getStripe();
 
@@ -94,8 +100,9 @@ const Cart = () => {
               <h3>Subtotal</h3>
               <h3>{totalPrice}</h3>
             </div>
+            
             <div className='btn-container'>
-              <button type='button' className='btn' onClick={handleCheckout}>Place your order</button>
+              <button type='button' className='btn' onClick={user ? (handleCheckout) : (handlelogin) }>Place your order</button>
             </div>
           </div>
         )}
