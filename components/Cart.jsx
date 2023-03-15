@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { urlFor } from '../lib/client'
 import { useStateContext } from '../context/StateContext'
 import { AiOutlineMinus, AiOutlinePlus, AiOutlineClose, AiOutlineDelete } from 'react-icons/ai'
@@ -10,12 +10,28 @@ import { useUser } from '@auth0/nextjs-auth0/client'
 import { useRouter } from 'next/router'
 
 const Cart = () => {
-  const cartRef = React.useRef();
-  const { setShowCart, totalQuantities, cartItems, totalPrice, toggleCartItemQuanitity, onRemove } = useStateContext();
+  const cartRef = React.useRef(true);
+  const { setShowCart, totalQuantities, cartItems, totalPrice, toggleCartItemQuanitity, onRemove, setCartItems } = useStateContext();
   const { user, error, isLoading } = useUser();
   const { push } = useRouter();
   if (isLoading) return <h1>Loading...</h1>;
   const handlelogin = () => push('/api/auth/login');
+
+//   useEffect(() => {
+//     if (JSON.parse(localStorage.getItem("cartItems"))) {
+//         const storedCartItems = JSON.parse(localStorage.getItem("cartItems"));
+//         setCartItems([...cartItems, ...storedCartItems]);
+//     }
+// }, []);
+
+// useEffect(() => {
+//     if (cartRef.current) {
+//         cartRef.current = false;
+//         return;
+//     }
+//     window.localStorage.setItem("cartItems", JSON.stringify(cartItems));
+// }, [cartItems]);
+
   const handleCheckout = async () => {
     const stripe = await getStripe();
 

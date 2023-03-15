@@ -84,6 +84,46 @@ width: 100%;
 .cart-icon:hover{
   transform: scale(1.1,1.1);
 }
+
+.login{
+  display: flex;
+  flex-direction: row;
+}
+
+.logo-container{
+
+}
+
+.logo-holder{
+text-align:center;
+} 
+.logo-9{
+  position:relative;
+}
+.logo-9 span{
+  font-size:80px;
+    position:absolute;
+    z-index:5;
+    text-align:center;
+    width:100%;
+    left:0;
+    top:-10px;
+    color:#3c5365;
+    -webkit-animation:ring 2s ease infinite;
+    animation:ring 2s ease infinite;
+}
+.logo-9 h3{
+  font-family: 'Lora', serif;
+  font-weight:600;
+  text-transform:uppercase;
+  font-size:40px;
+  position:relative;
+  z-index:1;
+  color:#f02d34;
+  text-shadow: 3px 3px 0 #fff, -3px -3px 0 #fff, 3px -3px 0 #fff, -3px 3px 0 #fff;
+}
+@-webkit-keyframes ring{0%{-webkit-transform:rotate(-15deg);transform:rotate(-15deg)}2%{-webkit-transform:rotate(15deg);transform:rotate(15deg)}4%{-webkit-transform:rotate(-18deg);transform:rotate(-18deg)}6%{-webkit-transform:rotate(18deg);transform:rotate(18deg)}8%{-webkit-transform:rotate(-22deg);transform:rotate(-22deg)}10%{-webkit-transform:rotate(22deg);transform:rotate(22deg)}12%{-webkit-transform:rotate(-18deg);transform:rotate(-18deg)}14%{-webkit-transform:rotate(18deg);transform:rotate(18deg)}16%{-webkit-transform:rotate(-12deg);transform:rotate(-12deg)}18%{-webkit-transform:rotate(12deg);transform:rotate(12deg)}100%,20%{-webkit-transform:rotate(0);transform:rotate(0)}}@keyframes ring{0%{-webkit-transform:rotate(-15deg);transform:rotate(-15deg)}2%{-webkit-transform:rotate(15deg);transform:rotate(15deg)}4%{-webkit-transform:rotate(-18deg);transform:rotate(-18deg)}6%{-webkit-transform:rotate(18deg);transform:rotate(18deg)}8%{-webkit-transform:rotate(-22deg);transform:rotate(-22deg)}10%{-webkit-transform:rotate(22deg);transform:rotate(22deg)}12%{-webkit-transform:rotate(-18deg);transform:rotate(-18deg)}14%{-webkit-transform:rotate(18deg);transform:rotate(18deg)}16%{-webkit-transform:rotate(-12deg);transform:rotate(-12deg)}18%{-webkit-transform:rotate(12deg);transform:rotate(12deg)}100%,20%{-webkit-transform:rotate(0);transform:rotate(0)}}
+
 .cart-item-qty{
   position: absolute;
   right: -8px;
@@ -766,3 +806,8 @@ margin-top: 160px;
   margin: auto;
 }
 }
+
+
+
+
+
