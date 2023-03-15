@@ -102,7 +102,7 @@ const Cart = () => {
             </div>
             
             <div className='btn-container'>
-              <button type='button' className='btn' onClick={handleCheckout}>Place your order</button>
+              <button type='button' className='btn' onClick={ user ? (handleCheckout) : (handlelogin)}>Place your order</button>
             </div>
           </div>
         )}
